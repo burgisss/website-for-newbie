@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rose, My Love ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fff1f5; --bg2:#ffe6ee; --text:#7a3d57; --soft:#9b536f; --card:#fffafd;
+  --btn:#b8517a; --btn-h:#9f3f64; --shadow:rgba(184,81,122,.16);
+  --hero:linear-gradient(160deg,#ffe0eb,#fff5f7 55%,#fbd4e2);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --serif:"Fraunces",Georgia,serif; --sans:"Nunito",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1117; --bg2:#25161d; --text:#f3cbd9; --soft:#e3a3ba; --card:#2d1b24;
+    --btn:#b8517a; --btn-h:#cc6790; --shadow:rgba(0,0,0,.4);
+    --hero:linear-gradient(160deg,#2f1823,#1c1117 60%,#33192a); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1117; --bg2:#25161d; --text:#f3cbd9; --soft:#e3a3ba; --card:#2d1b24;
+  --btn:#b8517a; --btn-h:#cc6790; --shadow:rgba(0,0,0,.4);
+  --hero:linear-gradient(160deg,#2f1823,#1c1117 60%,#33192a); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);text-align:center;overflow-x:hidden;line-height:1.8}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--text);margin:.3em 0}
+h1{font-size:clamp(40px,9vw,72px);line-height:1.1}
+h2{font-size:clamp(26px,5vw,36px)}
+p{margin:.6em auto;max-width:34em}
+section{padding:80px 20px}
+.alt{background:var(--bg2)}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--hero);padding:40px 20px}
+.hero .date{font-style:italic;font-family:var(--serif);font-size:20px;color:var(--soft)}
+.count{margin:22px 0 10px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.count div{background:var(--card);border-radius:18px;padding:12px 16px;min-width:74px;box-shadow:0 6px 22px var(--shadow)}
+.count b{display:block;font-family:var(--serif);font-size:30px;line-height:1.2}
+.count span{font-size:13px;color:var(--soft)}
+#countMsg{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--soft)}
+button{font:inherit;font-weight:600;background:var(--btn);border:0;color:#fff;padding:13px 26px;border-radius:30px;cursor:pointer;margin:8px;transition:transform .25s,background .25s}
+button:hover{transform:scale(1.05);background:var(--btn-h)}
+button:focus-visible,.flower:focus-visible,.env:focus-visible,.gallery figure:focus-visible{outline:3px solid var(--btn);outline-offset:4px}
+.ghost{background:transparent;color:var(--btn);box-shadow:inset 0 0 0 2px var(--btn)}
+.ghost:hover{background:var(--btn);color:#fff}
+.card{background:var(--card);border-radius:26px;padding:30px 26px;max-width:560px;margin:26px auto;box-shadow:0 8px 30px var(--shadow)}
+.env{background:none;font-size:88px;padding:0;margin:10px;line-height:1;color:inherit;animation:bob 2.6s ease-in-out infinite}
+.env:hover{background:none}
+.env.opened{animation:none;transform:scale(.8)}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-3deg)}}
+#letter{display:none;text-align:left}
+#letter.open{display:block}
+#letter h2{text-align:center}
+#letter p{opacity:0;transform:translateY(10px);transition:opacity .8s,transform .8s}
+#letter.open p.in{opacity:1;transform:none}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;max-width:700px;margin:26px auto}
+.gallery figure{margin:0;background:var(--card);border-radius:18px;padding:10px;box-shadow:0 6px 20px var(--shadow)}
+.gallery .ph{height:170px;border-radius:12px;display:grid;place-items:center;font-size:52px;background:var(--bg2)}
+.gallery img{width:100%;height:170px;object-fit:cover;border-radius:12px;cursor:zoom-in;display:block}
+.gallery figcaption{font-size:14px;padding:8px 4px 2px;outline:none;color:var(--soft)}
+.gallery figcaption:focus{box-shadow:inset 0 -2px var(--btn)}
+dialog{border:0;border-radius:20px;padding:10px;max-width:92vw;background:var(--card)}
+dialog::backdrop{background:rgba(20,8,14,.7)}
+dialog img{max-width:100%;max-height:78vh;border-radius:12px;display:block}
+.bouquet-art{font-size:clamp(100px,22vw,160px);line-height:1.35;margin:18px auto;filter:drop-shadow(0 10px 14px var(--shadow))}
+.reason{max-width:420px;margin:20px auto}
+#reasonText{min-height:3.4em;font-size:24px;transition:opacity .3s}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:8px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--btn);transition:background .3s}
+.dots i.on{background:var(--btn)}
+#surpriseBox{display:none}
+#surpriseBox.show{display:block;animation:pop .7s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.85)}}
+footer{padding:44px 15px;background:var(--bg2)}
+.fx{position:fixed;top:0;left:0;pointer-events:none;z-index:20;will-change:transform}
+.heart{position:fixed;bottom:-40px;pointer-events:none;z-index:10;animation:floatUp 8s linear forwards}
+@keyframes floatUp{to{transform:translate(var(--dx,0),-112vh) rotate(35deg);opacity:0}}
+.tools{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:30}
+.tools button{padding:8px 13px;margin:0 0 0 6px;font-size:14px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <button class="ghost" id="musicBtn" aria-pressed="false">♫ Play our music</button>
+  <button class="ghost" id="themeBtn" aria-label="Switch light or dark">◐</button>
+</div>
+
+<header class="hero">
+  <div style="font-size:66px" aria-hidden="true">🌷</div>
+  <h1>Happy First Monthsary!</h1>
+  <h2 style="font-style:italic;color:var(--soft)">Rose, my love ♡</h2>
+  <p class="date">November 28, 2026</p>
+  <div class="count" id="count" aria-live="off"></div>
+  <p id="countMsg"></p>
+  <p>One month down, forever to go. 💗</p>
+  <button id="openBtn">Open your surprise 💌</button>
+</header>
+
+<section id="letter-section">
+  <h2>For you, my love</h2>
+  <button class="env" id="envBtn" aria-expanded="false" aria-controls="letter" aria-label="Open the letter">💌</button>
+  <p id="envHint">Tap the envelope to open your letter.</p>
+  <div class="card" id="letter">
+    <h2>My dearest Rose ♡</h2>
+    <p>Happy first monthsary, my love!</p>
+    <p>I just want you to know how thankful I am to have you in my life. Even the simplest moments become special because I have you.</p>
+    <p>Thank you for your love, your patience, your smile, and for making my days brighter. I may not be perfect, but I promise to keep learning how to love you better every day.</p>
+    <p>This is only our first month, and I hope we get to celebrate countless more months and years together.</p>
+    <p>I love you so much, MY LOVE. Always remember that you are special to me.</p>
+    <p style="text-align:right">Forever yours,<br>Your Babi ❤️</p>
+  </div>
+</section>
+
+<section class="alt">
+  <h2>Every picture tells a story 📸</h2>
+  <p>A little collection of our favorite memories. Tap any photo to see it up close.</p>
+  <div class="gallery" id="gallery">
+    <figure><img src="c:\Users\ThinkPad\Downloads\f3e7610a-af9d-4d96-aefc-f148e4ff79a0.jfif" alt="Our memory 1" tabindex="0"><figcaption>Fav picture</figure>
+    <figure><img src="c:\Users\ThinkPad\Downloads\3b6da47f-c08a-4819-8b65-ff9204768711.jfif" alt="Our memory 2" tabindex="0"><figcaption>So pretty></figure>
+    <figure><img src="c:\Users\ThinkPad\Downloads\6bc2e046-7c09-468a-8e09-fb80f2cc4174.jfif" alt="Our memory 3" tabindex="0"><figcaption>First picture?></figure>
+    <figure><img src="c:\Users\ThinkPad\Downloads\5507a91c-ed0d-412d-8e4d-e096154ea407.jfif" alt="Our memory 4" tabindex="0"><figcaption>Here too</figcaption></figure>
+    <figure><img src="c:\Users\ThinkPad\Downloads\71ee48be-cff8-4210-bb79-7d94097d977f.jfif" alt="Our memory 5" tabindex="0"><figcaption>Memorable moment</figcaption></figure>
+    <figure><img src="c:\Users\ThinkPad\Downloads\imagesphoto1.jpg.jfif" alt="Our memory 6" tabindex="0"><figcaption>Us</figcaption></figure>
+     <figure><img src="c:\Users\ThinkPad\OneDrive\Pictures\a94a7fe0-cc76-47b3-9d7b-a451f6f9053e.jpg" tabindex="0"><figcaption>My best fav picture</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2>A bouquet for my Rose 💐</h2>
+  <div class="bouquet-art" aria-hidden="true">💐</div>
+  <div class="card">
+    <h3>Roses, just for you 🌹</h3>
+    <p>Roses, because they remind me of you and the beauty of your name. Every petal is a little reminder of how beautiful, precious, and special you are to me.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <h2>Reasons why I love you ❤️</h2>
+  <p>Tap the button to uncover each reason. There are ten.</p>
+  <div class="card reason">
+    <h3 id="reasonText" aria-live="polite">I love you because…</h3>
+    <button id="reasonBtn">Show a reason 💗</button>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<section>
+  <h2>My special surprise 🎁</h2>
+  <p>Are you ready, my love?</p>
+  <button id="surpriseBtn">Open your final surprise ♡</button>
+  <div class="card" id="surpriseBox">
+    <div style="font-size:52px" aria-hidden="true">💗🌷💗</div>
+    <h2>It’s always you, Rose, MY LOVE.</h2>
+    <p>Out of all the people in this world, you’re the one I want to choose every day.</p>
+    <p>Thank you for being my happiness, my comfort, and my favorite person.</p>
+    <p>I still can't believe that we made it here, that we're finally together and celebrating our very first monthsary. It feels like a dream, and I'm so grateful that I get to share this beautiful moment with you.</p>
+    <p>Happy first monthsary, my love! Here’s to our next chapters together. I love you endlessly. ❤️</p>
+    <h1 style="font-size:clamp(30px,7vw,46px)">♡ Forever us ♡</h1>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:34px" aria-hidden="true">🌷</div>
+  <h2>Rose, my love</h2>
+  <p>November 28, 2026 · Made with love, just for you ♡</p>
+</footer>
+
+<dialog id="lightbox"><img alt="Our memory" id="lbImg"></dialog>
+
+<script>
+const $ = id => document.getElementById(id);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- Floating hearts (paused when tab hidden, capped) ---------- */
+function createHeart(){
+  if (reduce || document.querySelectorAll('.heart').length > 24) return;
+  const h = document.createElement('div');
+  h.className = 'heart';
+  h.setAttribute('aria-hidden','true');
+  h.textContent = ['💗','💕','♡','🌸'][Math.floor(Math.random()*4)];
+  h.style.left = Math.random()*100 + 'vw';
+  h.style.fontSize = (15 + Math.random()*20) + 'px';
+  h.style.setProperty('--dx', (Math.random()*80 - 40) + 'px');
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 8000);
+}
+setInterval(() => { if (!document.hidden) createHeart(); }, 900);
+
+/* ---------- Countdown to the monthsary ---------- */
+const target = new Date(2026, 10, 28); // Nov 28, 2026 (local time)
+function tick(){
+  const now = new Date(), diff = target - now, box = $('count'), msg = $('countMsg');
+  if (diff > 0){
+    const d = Math.floor(diff/864e5), h = Math.floor(diff/36e5)%24,
+          m = Math.floor(diff/6e4)%60, s = Math.floor(diff/1e3)%60;
+    box.innerHTML = [[d,'days'],[h,'hours'],[m,'min'],[s,'sec']]
+      .map(([n,l]) => `<div><b>${String(n).padStart(2,'0')}</b><span>${l}</span></div>`).join('');
+    msg.textContent = 'until our first monthsary';
+  } else {
+    box.innerHTML = '';
+    msg.textContent = now - target < 864e5 ? 'Today is our monthsary! 💗' : 'We’re celebrating one month together. 💗';
+  }
+}
+tick(); setInterval(tick, 1000);
+
+/* ---------- Letter: opens, then each paragraph fades in ---------- */
+let letterOpen = false;
+$('envBtn').onclick = () => {
+  letterOpen = !letterOpen;
+  const L = $('letter');
+  L.classList.toggle('open', letterOpen);
+  $('envBtn').classList.toggle('opened', letterOpen);
+  $('envBtn').setAttribute('aria-expanded', letterOpen);
+  $('envHint').style.display = letterOpen ? 'none' : '';
+  L.querySelectorAll('p').forEach((p,i) => {
+    p.classList.remove('in');
+    if (letterOpen) setTimeout(() => p.classList.add('in'), reduce ? 0 : 250 + i*650);
+  });
+  if (letterOpen) { burst(8); L.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'}); }
+};
+$('openBtn').onclick = () => $('letter-section').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+
+/* ---------- Fixed photo gallery and lightbox ---------- */
+function openPhoto(img){
+  $('lbImg').src = img.src;
+  $('lbImg').alt = img.alt || 'Our memory';
+  $('lightbox').showModal();
+}
+document.querySelectorAll('.gallery img').forEach(img => {
+  img.addEventListener('click', () => openPhoto(img));
+  img.addEventListener('keydown', ev => {
+    if (ev.key === 'Enter' || ev.key === ' ') {
+      ev.preventDefault();
+      openPhoto(img);
+    }
+  });
+});
+$('lightbox').addEventListener('click', () => $('lightbox').close());
+
+/* ---------- Reasons (shuffled, no repeats until all seen) ---------- */
+const reasons = [
+  "Your beautiful smile makes my day. ❤️",
+  "You make me feel loved and appreciated.",
+  "Your laugh is my favorite sound.",
+  "You make ordinary days feel special.",
+  "I love how you care for me.",
+  "You are beautiful inside and out.",
+  "I can be myself when I’m with you.",
+  "You give me a reason to smile.",
+  "Every moment with you is precious.",
+  "Because you’re YOU, Rose. And that’s enough. 💗"
+];
+const dots = $('dots');
+reasons.forEach(() => dots.appendChild(document.createElement('i')));
+let order = [], seen = 0;
+const shuffle = a => { for (let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+$('reasonBtn').onclick = () => {
+  if (!order.length) { order = shuffle(reasons.slice(0,-1)); order.push(reasons[reasons.length-1]); seen = 0; [...dots.children].forEach(d => d.classList.remove('on')); }
+  $('reasonText').textContent = order.shift();
+  dots.children[seen++].classList.add('on');
+  if (!order.length) { $('reasonBtn').textContent = 'Start again 💗'; burst(10); } else { $('reasonBtn').textContent = 'Another reason 💗'; }
+};
+
+/* ---------- Final surprise ---------- */
+$('surpriseBtn').onclick = () => {
+  const b = $('surpriseBox');
+  b.classList.add('show');
+  b.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+  burst(30);
+};
+function burst(n){ for (let i=0;i<n;i++) setTimeout(createHeart, i*90); }
+
+/* ---------- Theme toggle ---------- */
+$('themeBtn').onclick = () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme = dark ? 'light' : 'dark';
+};
+
+/* ---------- Music: soft synthesized lullaby (C – Am – F – G) ---------- */
+let ctx = null, timer = null, step = 0, playing = false;
+const chords = [[261.63,329.63,392],[220,261.63,329.63],[174.61,220,261.63],[196,246.94,293.66]];
+function note(freq, when, dur, vol){
+  const o = ctx.createOscillator(), g = ctx.createGain();
+  o.type = 'sine'; o.frequency.value = freq;
+  g.gain.setValueAtTime(0, when);
+  g.gain.linearRampToValueAtTime(vol, when + .08);
+  g.gain.exponentialRampToValueAtTime(.001, when + dur);
+  o.connect(g); g.connect(ctx.destination);
+  o.start(when); o.stop(when + dur + .05);
+}
+function beat(){
+  const t = ctx.currentTime, chord = chords[Math.floor(step/8) % 4], i = step % 8;
+  if (i === 0) chord.forEach(f => note(f/2, t, 3.6, .05));
+  const arp = [0,1,2,1,2,1,2,1][i];
+  note(chord[arp]*2, t, 1.3, .045);
+  step++;
+}
+$('musicBtn').onclick = async () => {
+  if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+  if (ctx.state === 'suspended') await ctx.resume();
+  playing = !playing;
+  $('musicBtn').setAttribute('aria-pressed', playing);
+  $('musicBtn').textContent = playing ? '♫ Pause our music' : '♫ Play our music';
+  if (playing) { beat(); timer = setInterval(beat, 520); } else clearInterval(timer);
+};
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && playing) $('musicBtn').click();
+});
+</script>
+</body>
+</html>
